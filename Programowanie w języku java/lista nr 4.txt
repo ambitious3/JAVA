@@ -1,0 +1,259 @@
+1.
+public class Main {
+    public static void main(String[] args) {
+
+        int[] intArray = {1, 2, 3, 4, 5};
+        char[] charArray = {'a', 'b', 'c', 'd', 'e'};
+        String[] stringArray = {"raz", "dwa", "trzy", "cztery", "piec"};
+
+    
+        System.out.println("Tablica int:");
+        for (int num : intArray) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        System.out.println("Tablica char:");
+        for (char c : charArray) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+
+        System.out.println("Tablica String:");
+        for (String str : stringArray) {
+            System.out.print(str + " ");
+        }
+    }
+}
+2.
+public class Main {
+    public static void main(String[] args) {
+        int[] liczbyMalejace = new int[20];
+
+        for (int i = 0; i < 20; i++) {
+            liczbyMalejace[i] = 20 - i;
+        }
+
+
+        for (int liczba : liczbyMalejace) {
+            System.out.print(liczba + " ");
+        }
+    }
+}
+3.
+public class Main {
+    public static void main(String[] args) {
+        int[] liczbyMalejace = new int[20];
+        int i = 0;
+        int liczba = 20;
+
+        while (i < 20) {
+            liczbyMalejace[i] = liczba;
+            liczba--;
+            i++;
+        }
+
+        for (int j = 0; j < 20; j++) {
+            System.out.print(liczbyMalejace[j] + " ");
+        }
+    }
+}
+4.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj ilosc liczb (nie wiecej niz 50): ");
+        int n = scanner.nextInt();
+        int[] liczby = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Podaj liczbe #" + (i + 1) + ": ");
+            liczby[i] = scanner.nextInt();
+        }
+
+        int suma = 0;
+        for (int liczba : liczby) {
+            suma += liczba;
+        }
+
+        if (n > 0) {
+            double srednia = (double) suma / n;
+            System.out.println("Srednia arytmetyczna: " + srednia);
+        } else {
+            System.out.println("Brak liczb do obliczenia sredniej.");
+        }
+    }
+}
+5.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj ilosc liczb: ");
+        int n = scanner.nextInt();
+        double[] liczby = new double[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Podaj liczbe #" + (i + 1) + ": ");
+            liczby[i] = scanner.nextDouble();
+        }
+
+        double maksimum = Double.NEGATIVE_INFINITY;
+
+        for (double liczba : liczby) {
+            if (liczba > maksimum) {
+                maksimum = liczba;
+            }
+        }
+
+        System.out.println("Maksimum: " + maksimum);
+    }
+}
+6.
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] oceny = new int[5];
+
+        System.out.println("Podaj oceny za styl skokow narciarskich (oceny od 0 do 20):");
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Ocena #" + (i + 1) + ": ");
+            oceny[i] = scanner.nextInt();
+
+            if (oceny[i] < 0 || oceny[i] > 20) {
+                System.out.println("Bledna ocena, podaj ocene ponownie.");
+                i--;
+            }
+        }
+
+        Arrays.sort(oceny);
+        int sumaOcen = 0;
+
+        for (int i = 1; i < 4; i++) {
+            sumaOcen += oceny[i];
+        }
+
+        double srednia = (double) sumaOcen / 3;
+        System.out.println("Ostateczna ocena za styl: " + srednia);
+    }
+}
+7.
+public class Main {
+    public static void main(String[] args) {
+
+        int[][] tablicaInt = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        System.out.println("Tablica int:");
+        for (int[] wiersz : tablicaInt) {
+            for (int liczba : wiersz) {
+                System.out.print(liczba + " ");
+            }
+            System.out.println();
+        }
+
+        String[][] tablicaString = {
+            {"A", "B", "C"},
+            {"D", "E", "F"},
+            {"G", "H", "I"}
+        };
+
+        System.out.println("Tablica String:");
+        for (String[] wiersz : tablicaString) {
+            for (String element : wiersz) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+8.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj rozmiar tablicy (liczba wierszy/kolumn): ");
+        int n = scanner.nextInt();
+        int[][] tablica = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                tablica[i][j] = Math.min(i, j) + 1;
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(tablica[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+9.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj liczbe wierszy: ");
+        int rows = scanner.nextInt();
+        System.out.print("Podaj liczbe kolumn: ");
+        int cols = scanner.nextInt();
+
+        int[][] tablica = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                tablica[i][j] = (i + 1) * (j + 1);
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(tablica[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+10.
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap<String, HashMap<String, String>> dictionary = new HashMap<>();
+
+
+        dictionary.put("dom", new HashMap<>());
+        dictionary.get("dom").put("angielski", "house");
+        dictionary.get("dom").put("niemiecki", "Haus");
+
+        dictionary.put("samochod", new HashMap<>());
+        dictionary.get("samochod").put("angielski", "car");
+        dictionary.get("samochod").put("niemiecki", "Auto");
+
+        for (String slowo : dictionary.keySet()) {
+            System.out.println("Slowo: " + slowo);
+            HashMap<String, String> tlumaczenia = dictionary.get(slowo);
+            for (String jezyk : tlumaczenia.keySet()) {
+                System.out.println(jezyk + ": " + tlumaczenia.get(jezyk));
+            }
+            System.out.println();
+        }
+    }
+}

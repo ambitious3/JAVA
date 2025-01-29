@@ -1,0 +1,257 @@
+1.
+public class TemperatureConverter {
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+
+    public static int celsiusToFahrenheit(int celsius) {
+        return (celsius * 9 / 5) + 32;
+    }
+
+    public static void main(String[] args) {
+        double celsiusDouble = 25.0;
+        int celsiusInt = 25;
+
+        double resultDouble = celsiusToFahrenheit(celsiusDouble);
+        int resultInt = celsiusToFahrenheit(celsiusInt);
+
+        System.out.println(celsiusDouble + " stopni Celsiusza to " + resultDouble + " stopni Fahrenheita.");
+        System.out.println(celsiusInt + " stopni Celsiusza to " + resultInt + " stopni Fahrenheita.");
+    }
+}
+2.
+public class Cat {
+    private String name;
+    private int age;
+
+    public Cat(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void meow() {
+        System.out.println(name + " miau!");
+    }
+
+    public static void main(String[] args) {
+        Cat myCat = new Cat("Kotek", 3);
+        myCat.meow();
+    }
+}
+3.
+public class Dog {
+    private String name;
+    private int age;
+    private double weight;
+
+    public Dog() {
+    }
+
+    public Dog(String name, int age, double weight) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+    }
+
+    public Dog(Dog otherDog) {
+        this.name = otherDog.name;
+        this.age = otherDog.age;
+        this.weight = otherDog.weight;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void bark() {
+        System.out.println(name + " szczeka!");
+    }
+
+    public static void main(String[] args) {
+        Dog spaniel = new Dog("Spaniel", 3, 10.5);
+        Dog bulldog = new Dog("Bulldog", 5, 20.2);
+        Dog jamnik = new Dog("Jamnik", 2, 5.5);
+
+        Dog copyDog = new Dog(spaniel);
+
+        System.out.println("Pies 1: " + spaniel.getName() + ", " + spaniel.getAge() + " lat, " + spaniel.getWeight() + " kg");
+        System.out.println("Pies 2: " + bulldog.getName() + ", " + bulldog.getAge() + " lat, " + bulldog.getWeight() + " kg");
+        System.out.println("Pies 3: " + jamnik.getName() + ", " + jamnik.getAge() + " lat, " + jamnik.getWeight() + " kg");
+        System.out.println("SkoPIowany pies: " + copyDog.getName() + ", " + copyDog.getAge() + " lat, " + copyDog.getWeight() + " kg");
+
+        spaniel.bark();
+        bulldog.bark();
+        jamnik.bark();
+        copyDog.bark();
+    }
+}
+4.
+public class Moneybox {
+    private double balance;
+
+    public Moneybox() {
+        balance = 0;
+    }
+
+    public void insertMoney(double amount) {
+        balance += amount;
+    }
+
+    public double breakMoneybox() {
+        double totalBalance = balance;
+        balance = 0;
+        return totalBalance;
+    }
+
+    public static void main(String[] args) {
+        Moneybox piggyBank = new Moneybox();
+
+        piggyBank.insertMoney(10.25);
+        piggyBank.insertMoney(25.0);
+        piggyBank.insertMoney(2.35);
+
+        double savings = piggyBank.breakMoneybox();
+
+        System.out.println("Oszczednosci: " + savings);
+    }
+}
+5.
+import java.util.Scanner;
+
+public class Rectangle {
+    private double a;
+    private double b;
+    private double area;
+    private double perimeter;
+
+    public void readData() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Podaj dlugosc boku a: ");
+        a = input.nextDouble();
+        System.out.print("Podaj dlugosc boku b: ");
+        b = input.nextDouble();
+        input.close();
+    }
+
+    public void calcPerimeter() {
+        perimeter = 2 * (a + b);
+        System.out.println("Obwod prostokata wynosi: " + perimeter);
+    }
+
+    public void calcArea() {
+        area = a * b;
+        System.out.println("Pole prostokata wynosi: " + area);
+    }
+
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle();
+        rectangle.readData();
+        rectangle.calcPerimeter();
+        rectangle.calcArea();
+    }
+}
+6.
+public class Books {
+    private String author;
+    private String title;
+    private int year;
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public static void main(String[] args) {
+        Books[] bookArray = new Books[10];
+
+        for (int i = 0; i < 10; i++) {
+            Books book = new Books();
+            book.setAuthor("Author " + i);
+            book.setTitle("Title " + i);
+            book.setYear(2023 - i);
+            bookArray[i] = book;
+        }
+
+        for (Books book : bookArray) {
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Year: " + book.getYear());
+            System.out.println();
+        }
+    }
+}
+7.
+public class Counter {
+    private int count;
+
+    public Counter() {
+        count = 0;
+    }
+
+    public void incNr() {
+        count++;
+    }
+
+    public void decNr() {
+        if (count > 0) {
+            count--;
+        }
+    }
+
+    public int checkNr() {
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Counter buildingCounter = new Counter();
+
+        buildingCounter.incNr();
+        buildingCounter.incNr();
+        buildingCounter.incNr();
+
+        System.out.println("Liczba osob w budynku: " + buildingCounter.checkNr());
+
+        buildingCounter.decNr();
+
+        System.out.println("Liczba osob w budynku: " + buildingCounter.checkNr());
+    }
+}

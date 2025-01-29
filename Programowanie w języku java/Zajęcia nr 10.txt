@@ -1,0 +1,1063 @@
+1.
+
+interface InterfaceDraw {
+    void draw();
+}
+
+interface InterfaceSound {
+    void play();
+}
+
+abstract class Shape implements InterfaceDraw {
+    protected String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public abstract double calcArea();
+
+    public abstract double calcCircuit();
+}
+
+class Triangle extends Shape implements InterfaceSound {
+    private double A;
+    private double h;
+
+    public Triangle(String color, double A, double h) {
+        super(color);
+        this.A = A;
+        this.h = h;
+    }
+
+    @Override
+    public double calcArea() {
+        return 0.5 * A * h;
+    }
+
+    @Override
+    public double calcCircuit() {
+ 
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Triangle");
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing Triangle Sound");
+    }
+}
+
+
+class Circle extends Shape implements InterfaceSound {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    public double calcArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calcCircuit() {
+       
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Circle");
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing Circle Sound");
+    }
+}
+
+
+class Quadrangle extends Shape {
+    protected double a;
+
+    public Quadrangle(String color, double a) {
+        super(color);
+        this.a = a;
+    }
+
+    @Override
+    public double calcArea() {
+     
+        return 0;
+    }
+
+    @Override
+    public double calcCircuit() {
+ 
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+}
+
+class Square extends Quadrangle {
+    public Square(String color, double a) {
+        super(color, a);
+    }
+
+    @Override
+    public double calcArea() {
+ 
+        return a * a;
+    }
+
+    @Override
+    public double calcCircuit() {
+       
+        return 4 * a;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Square");
+    }
+}
+
+
+class Rectangle extends Quadrangle {
+    protected double b;
+
+    public Rectangle(String color, double a, double b) {
+        super(color, a);
+        this.b = b;
+    }
+
+    @Override
+    public double calcArea() {
+     
+        return a * b;
+    }
+
+    @Override
+    public double calcCircuit() {
+    
+        return 2 * (a + b);
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+       
+        Triangle triangle = new Triangle("Red", 5, 8);
+        triangle.draw();
+        System.out.println("Area: " + triangle.calcArea());
+        System.out.println("Circuit: " + triangle.calcCircuit());
+        triangle.play();
+
+        Circle circle = new Circle("Blue", 7);
+        circle.draw();
+        System.out.println("Area: " + circle.calcArea());
+        System.out.println("Circuit: " + circle.calcCircuit());
+        circle.play();
+
+        Square square = new Square("Green", 4);
+        square.draw();
+        System.out.println("Area: " + square.calcArea());
+        System.out.println("Circuit: " + square.calcCircuit());
+
+        Rectangle rectangle = new Rectangle("Yellow", 6, 9);
+        rectangle.draw();
+        System.out.println("Area: " + rectangle.calcArea());
+        System.out.println("Circuit: " + rectangle.calcCircuit());
+    }
+}
+2.
+
+interface InterfaceDraw {
+    void draw();
+}
+
+
+interface InterfaceSound {
+    void play();
+}
+
+
+abstract class Shape implements InterfaceDraw {
+    protected String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public abstract double calcArea();
+
+    public abstract double calcCircuit();
+}
+
+class Triangle extends Shape implements InterfaceSound {
+    private double A;
+    private double h;
+
+    public Triangle(String color, double A, double h) {
+        super(color);
+        this.A = A;
+        this.h = h;
+    }
+
+    @Override
+    public double calcArea() {
+        return 0.5 * A * h;
+    }
+
+    @Override
+    public double calcCircuit() {
+
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Triangle");
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing Triangle Sound");
+    }
+}
+
+
+class Circle extends Shape implements InterfaceSound {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    public double calcArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calcCircuit() {
+        
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Circle");
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing Circle Sound");
+    }
+}
+
+
+class Quadrangle extends Shape {
+    protected double a;
+
+    public Quadrangle(String color, double a) {
+        super(color);
+        this.a = a;
+    }
+
+    @Override
+    public double calcArea() {
+ 
+        return 0;
+    }
+
+    @Override
+    public double calcCircuit() {
+ 
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+}
+
+
+class Square extends Quadrangle {
+    public Square(String color, double a) {
+        super(color, a);
+    }
+
+    @Override
+    public double calcArea() {
+       
+        return a * a;
+    }
+
+    @Override
+    public double calcCircuit() {
+      
+        return 4 * a;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Square");
+    }
+}
+
+
+class Rectangle extends Quadrangle {
+    protected double b;
+
+    public Rectangle(String color, double a, double b) {
+        super(color, a);
+        this.b = b;
+    }
+
+    @Override
+    public double calcArea() {
+       
+        return a * b;
+    }
+
+    @Override
+    public double calcCircuit() {
+       
+        return 2 * (a + b);
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Triangle triangle = new Triangle("Red", 5, 8);
+        triangle.draw();
+        System.out.println("Area: " + triangle.calcArea());
+        System.out.println("Circuit: " + triangle.calcCircuit());
+        triangle.play();
+
+        Circle circle = new Circle("Blue", 7);
+        circle.draw();
+        System.out.println("Area: " + circle.calcArea());
+        System.out.println("Circuit: " + circle.calcCircuit());
+        circle.play();
+
+        Square square = new Square("Green", 4);
+        square.draw();
+        System.out.println("Area: " + square.calcArea());
+        System.out.println("Circuit: " + square.calcCircuit());
+
+        Rectangle rectangle = new Rectangle("Yellow", 6, 9);
+        rectangle.draw();
+        System.out.println("Area: " + rectangle.calcArea());
+        System.out.println("Circuit: " + rectangle.calcCircuit());
+    }
+}
+3.
+import java.util.Objects;
+
+
+interface InterfaceDraw {
+    void draw();
+}
+
+
+interface InterfaceSound {
+    void play();
+}
+
+
+abstract class Shape implements InterfaceDraw {
+    protected String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public abstract double calcArea();
+
+    public abstract double calcCircuit();
+
+   
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Shape shape = (Shape) obj;
+        return Double.compare(shape.calcArea(), calcArea()) == 0 &&
+                Double.compare(shape.calcCircuit(), calcCircuit()) == 0 &&
+                Objects.equals(color, shape.color);
+    }
+}
+
+class Triangle extends Shape implements InterfaceSound {
+    private double A;
+    private double h;
+
+    public Triangle(String color, double A, double h) {
+        super(color);
+        this.A = A;
+        this.h = h;
+    }
+
+    @Override
+    public double calcArea() {
+        return 0.5 * A * h;
+    }
+
+    @Override
+    public double calcCircuit() {
+        
+        return 0;
+    }
+
+    public void draw() {
+        System.out.println("Drawing Triangle");
+    }
+
+    public void play() {
+        System.out.println("Playing Triangle Sound");
+    }
+
+   
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Triangle triangle = (Triangle) obj;
+        return Double.compare(triangle.A, A) == 0 &&
+                Double.compare(triangle.h, h) == 0;
+    }
+}
+
+
+class Circle extends Shape implements InterfaceSound {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    public double calcArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calcCircuit() {
+        
+        return 0;
+    }
+
+    public void draw() {
+        System.out.println("Drawing Circle");
+    }
+
+    public void play() {
+        System.out.println("Playing Circle Sound");
+    }
+
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Circle circle = (Circle) obj;
+        return Double.compare(circle.radius, radius) == 0;
+    }
+}
+
+
+class Quadrangle extends Shape {
+    protected double a;
+
+    public Quadrangle(String color, double a) {
+        super(color);
+        this.a = a;
+    }
+
+    @Override
+    public double calcArea() {
+        
+        return 0;
+    }
+
+    @Override
+    public double calcCircuit() {
+        
+        return 0;
+    }
+
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Quadrangle quadrangle = (Quadrangle) obj;
+        return Double.compare(quadrangle.a, a) == 0;
+    }
+}
+
+
+class Square extends Quadrangle {
+    public Square(String color, double a) {
+        super(color, a);
+    }
+
+    @Override
+    public double calcArea() {
+        
+        return a * a;
+    }
+
+    @Override
+    public double calcCircuit() {
+        
+        return 4 * a;
+    }
+
+    public void draw() {
+        System.out.println("Drawing Square");
+    }
+
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Square square = (Square) obj;
+        return Double.compare(square.a, a) == 0;
+    }
+}
+
+
+class Rectangle extends Quadrangle {
+    protected double b;
+
+    public Rectangle(String color, double a, double b) {
+        super(color, a);
+        this.b = b;
+    }
+
+    @Override
+    public double calcArea() {
+        
+        return a * b;
+    }
+
+    @Override
+    public double calcCircuit() {
+        
+        return 2 * (a + b);
+    }
+
+    public void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Rectangle rectangle = (Rectangle) obj;
+        return Double.compare(rectangle.a, a) == 0 &&
+                Double.compare(rectangle.b, b) == 0;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Triangle triangle1 = new Triangle("Red", 5, 8);
+        Triangle triangle2 = new Triangle("Red", 5, 8);
+        Circle circle = new Circle("Blue", 7);
+        Square square = new Square("Green", 4);
+        Rectangle rectangle = new Rectangle("Yellow", 6, 9);
+
+        
+        System.out.println("triangle1.equals(triangle2): " + triangle1.equals(triangle2));
+        System.out.println("triangle1.equals(circle): " + triangle1.equals(circle));
+        System.out.println("square.equals(rectangle): " + square.equals(rectangle));
+    }
+}
+4.
+import java.util.Objects;
+
+// Interfejs InterfaceDraw
+interface InterfaceDraw {
+    void draw();
+}
+
+// Interfejs InterfaceSound
+interface InterfaceSound {
+    void play();
+}
+
+// Abstrakcyjna klasa bazowa Shape implementująca InterfaceDraw
+abstract class Shape implements InterfaceDraw {
+    protected String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public abstract double calcArea();
+
+    public abstract double calcCircuit();
+
+    // Przesłonięta metoda equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Shape shape = (Shape) obj;
+        return Double.compare(shape.calcArea(), calcArea()) == 0 &&
+                Double.compare(shape.calcCircuit(), calcCircuit()) == 0 &&
+                Objects.equals(color, shape.color);
+    }
+
+    // Przesłonięta metoda hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, calcArea(), calcCircuit());
+    }
+}
+
+// Klasa Triangle dziedziczy z Shape, implementuje InterfaceSound oraz InterfaceDraw
+class Triangle extends Shape implements InterfaceSound {
+    private double A;
+    private double h;
+
+    public Triangle(String color, double A, double h) {
+        super(color);
+        this.A = A;
+        this.h = h;
+    }
+
+    @Override
+    public double calcArea() {
+        return 0.5 * A * h;
+    }
+
+    @Override
+    public double calcCircuit() {
+        // Implementacja obliczania obwodu dla trójkąta
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Triangle");
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing Triangle Sound");
+    }
+
+    // Przesłonięta metoda equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Triangle triangle = (Triangle) obj;
+        return Double.compare(triangle.A, A) == 0 &&
+                Double.compare(triangle.h, h) == 0;
+    }
+
+    // Przesłonięta metoda hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), A, h);
+    }
+}
+
+// Klasa Circle dziedziczy z Shape i implementuje InterfaceSound
+class Circle extends Shape implements InterfaceSound {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    @Override
+    public double calcArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calcCircuit() {
+        // Implementacja obliczania obwodu dla koła
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Circle");
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing Circle Sound");
+    }
+
+    // Przesłonięta metoda equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Circle circle = (Circle) obj;
+        return Double.compare(circle.radius, radius) == 0;
+    }
+
+    // Przesłonięta metoda hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), radius);
+    }
+}
+
+// Klasa Quadrangle dziedziczy z Shape
+class Quadrangle extends Shape {
+    protected double a;
+
+    public Quadrangle(String color, double a) {
+        super(color);
+        this.a = a;
+    }
+
+    @Override
+    public double calcArea() {
+        // Implementacja obliczania pola dla czworokąta
+        return 0;
+    }
+
+    @Override
+    public double calcCircuit() {
+        // Implementacja obliczania obwodu dla czworokąta
+        return 0;
+    }
+
+    // Przesłonięta metoda equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Quadrangle quadrangle = (Quadrangle) obj;
+        return Double.compare(quadrangle.a, a) == 0;
+    }
+
+    // Przesłonięta metoda hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), a);
+    }
+}
+
+// Klasa Square dziedziczy z Quadrangle
+class Square extends Quadrangle {
+    public Square(String color, double a) {
+        super(color, a);
+    }
+
+    @Override
+    public double calcArea() {
+        // Implementacja obliczania pola dla kwadratu
+        return a * a;
+    }
+
+    @Override
+    public double calcCircuit() {
+        // Implementacja obliczania obwodu dla kwadratu
+        return 4 * a;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Square");
+    }
+
+    // Przesłonięta metoda equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Square square = (Square) obj;
+        return Double.compare(square.a, a) == 0;
+    }
+
+    // Przesłonięta metoda hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), a);
+    }
+}
+
+// Klasa Rectangle dziedziczy z Quadrangle
+class Rectangle extends Quadrangle {
+    protected double b;
+
+    public Rectangle(String color, double a, double b) {
+        super(color, a);
+        this.b = b;
+    }
+
+    @Override
+    public double calcArea() {
+        // Implementacja obliczania pola dla prostokąta
+        return a * b;
+    }
+
+    @Override
+    public double calcCircuit() {
+        // Implementacja obliczania obwodu dla prostokąta
+        return 2 * (a + b);
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing Rectangle");
+    }
+
+    // Przesłonięta metoda equals
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Rectangle rectangle = (Rectangle) obj;
+        return Double.compare(rectangle.a, a) == 0 &&
+                Double.compare(rectangle.b, b) == 0;
+    }
+
+    // Przesłonięta metoda hashCode
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), a, b);
+    }
+}
+
+// Funkcja main do testowania
+public class Main {
+    public static void main(String[] args) {
+        Triangle triangle1 = new Triangle("Red", 5, 8);
+        Triangle triangle2 = new Triangle("Red", 5, 8);
+        Circle circle = new Circle("Blue", 7);
+        Square square = new Square("Green", 4);
+        Rectangle rectangle = new Rectangle("Yellow", 6, 9);
+
+        // Testowanie metody hashCode
+        System.out.println("triangle1.hashCode(): " + triangle1.hashCode());
+        System.out.println("triangle2.hashCode(): " + triangle2.hashCode());
+        System.out.println("circle.hashCode(): " + circle.hashCode());
+        System.out.println("square.hashCode(): " + square.hashCode());
+        System.out.println("rectangle.hashCode(): " + rectangle.hashCode());
+    }
+}
+5.
+import java.util.Arrays;
+
+interface Displayable {
+    void display();
+}
+
+abstract class Person implements Displayable {
+    protected String name;
+    protected int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Person person = (Person) obj;
+        return this.name.equals(person.name);
+    }
+}
+
+class Student extends Person {
+    public Student(String name, int age) {
+        super(name, age);
+    }
+
+    public void read() {
+        System.out.println(name + " is reading.");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Student: " + name + ", Age: " + age);
+    }
+}
+
+abstract class Employee extends Person implements Comparable<Employee> {
+    protected double salary;
+
+    public Employee(String name, int age, double salary) {
+        super(name, age);
+        this.salary = salary;
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Employee: " + name + ", Age: " + age + ", Salary: " + salary);
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public int compareTo(Employee employee) {
+        return Double.compare(this.salary, employee.salary);
+    }
+}
+
+class Driver extends Employee {
+    protected String breed;
+
+    public Driver(String name, int age, double salary, String breed) {
+        super(name, age, salary);
+        this.breed = breed;
+    }
+
+    public void drive() {
+        System.out.println(name + " is driving.");
+    }
+
+    public void parking() {
+        System.out.println(name + " is parking.");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Driver: " + name + ", Age: " + age + ", Salary: " + salary + ", Breed: " + breed);
+    }
+}
+
+class Accountant extends Employee {
+    public Accountant(String name, int age, double salary) {
+        super(name, age, salary);
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Accountant: " + name + ", Age: " + age + ", Salary: " + salary);
+    }
+}
+
+class Manager extends Employee {
+    public Manager(String name, int age, double salary) {
+        super(name, age, salary);
+    }
+
+    public void checkReport() {
+        System.out.println(name + " is checking the report.");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Manager: " + name + ", Age: " + age + ", Salary: " + salary);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student("John", 20);
+        Employee employee1 = new Employee("Alice", 30, 50000) {
+            @Override
+            public void display() {
+                System.out.println("Employee: " + name + ", Age: " + age + ", Salary: " + salary);
+            }
+        };
+        Driver driver = new Driver("Bob", 25, 60000, "Truck");
+        Accountant accountant = new Accountant("Charlie", 35, 70000);
+        Manager manager = new Manager("David", 40, 80000);
+
+        student.display();
+        employee1.display();
+        driver.display();
+        accountant.display();
+        manager.display();
+
+        ((Student) student).read();
+
+        ((Driver) driver).drive();
+        ((Driver) driver).parking();
+
+        Employee[] tabEmp = {employee1, driver, accountant, manager};
+
+        Arrays.sort(tabEmp);
+
+        for (Employee emp : tabEmp) {
+            emp.display();
+        }
+    }
+}

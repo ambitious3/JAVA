@@ -1,0 +1,460 @@
+1.
+abstract class Figura {
+    abstract double obliczPowierzchnie();
+
+    void wyswietlInformacje() {
+        System.out.println("To jest figura.");
+    }
+}
+
+class Kwadrat extends Figura {
+    double bok;
+
+    Kwadrat(double bok) {
+        this.bok = bok;
+    }
+
+    @Override
+    double obliczPowierzchnie() {
+        return bok * bok;
+    }
+}
+
+class Kolo extends Figura {
+    double promien;
+
+    Kolo(double promien) {
+        this.promien = promien;
+    }
+
+    @Override
+    double obliczPowierzchnie() {
+        return Math.PI * promien * promien;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Kwadrat kwadrat = new Kwadrat(5);
+        Kolo kolo = new Kolo(3);
+
+        kwadrat.wyswietlInformacje();
+        System.out.println("Powierzchnia kwadratu: " + kwadrat.obliczPowierzchnie());
+
+        kolo.wyswietlInformacje();
+        System.out.println("Powierzchnia koła: " + kolo.obliczPowierzchnie());
+    }
+}
+2.
+// Abstrakcyjna klasa Shape
+abstract class Shape {
+    private String color;
+
+    public Shape(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public abstract double calcArea();
+
+    public abstract double calcCircuit();
+}
+
+class Triangle extends Shape {
+    private double a;
+    private double b;
+    private double h;
+
+    public Triangle(String color, double a, double b, double h) {
+        super(color);
+        this.a = a;
+        this.b = b;
+        this.h = h;
+    }
+
+    public double getA() {
+        return a;
+    }
+
+    public double getB() {
+        return b;
+    }
+
+    public double getH() {
+        return h;
+    }
+
+    @Override
+    public double calcArea() {
+        return 0.5 * a * h;
+    }
+
+    @Override
+    public double calcCircuit() {
+        return a + b + h;
+    }
+}
+
+abstract class Quadrangle extends Shape {
+    public Quadrangle(String color) {
+        super(color);
+    }
+
+    public abstract double calcArea();
+
+    public abstract double calcCircuit();
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(String color, double radius) {
+        super(color);
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    @Override
+    public double calcArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calcCircuit() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+class Square extends Quadrangle {
+    private double side;
+
+    public Square(String color, double side) {
+        super(color);
+        this.side = side;
+    }
+
+    public double getSide() {
+        return side;
+    }
+
+    @Override
+    public double calcArea() {
+        return side * side;
+    }
+
+    @Override
+    public double calcCircuit() {
+        return 4 * side;
+    }
+}
+
+class Rectangle extends Quadrangle {
+    private double a;
+    private double b;
+
+    public Rectangle(String color, double a, double b) {
+        super(color);
+        this.a = a;
+        this.b = b;
+    }
+
+    public double getA() {
+        return a;
+    }
+
+    public double getB() {
+        return b;
+    }
+
+    @Override
+    public double calcArea() {
+        return a * b;
+    }
+
+    @Override
+    public double calcCircuit() {
+        return 2 * (a + b);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Triangle triangle = new Triangle("Red", 3, 4, 5);
+        Circle circle = new Circle("Blue", 2.5);
+        Square square = new Square("Green", 4);
+        Rectangle rectangle = new Rectangle("Yellow", 2, 6);
+
+        printShapeInfo(triangle);
+        printShapeInfo(circle);
+        printShapeInfo(square);
+        printShapeInfo(rectangle);
+    }
+
+    private static void printShapeInfo(Shape shape) {
+        System.out.println("Shape color: " + shape.getColor());
+        System.out.println("Area: " + shape.calcArea());
+        System.out.println("Circuit: " + shape.calcCircuit());
+        System.out.println();
+    }
+}
+3.
+// Interfejs Istota
+interface Istota {
+    void chodzenie();
+}
+
+// Interfejs IstotaGrywalna rozszerza Istota
+interface IstotaGrywalna extends Istota {
+    void odpoczywanie();
+
+    void bieganie();
+}
+
+// Klasa bazowa implementująca interfejs Istota
+abstract class BazowaIstota implements Istota {
+    private int energia;
+    private int wiek;
+
+    public BazowaIstota(int energia, int wiek) {
+        this.energia = energia;
+        this.wiek = wiek;
+    }
+
+    public int getEnergia() {
+        return energia;
+    }
+
+    public void setEnergia(int energia) {
+        this.energia = energia;
+    }
+
+    public int getWiek() {
+        return wiek;
+    }
+
+    public void setWiek(int wiek) {
+        this.wiek = wiek;
+    }
+}
+
+// Klasa Ogr implementuje interfejs IstotaGrywalna
+class Ogr extends BazowaIstota implements IstotaGrywalna {
+    private final int poziomAgresji;
+
+    public Ogr(int energia, int wiek, int poziomAgresji) {
+        super(energia, wiek);
+        this.poziomAgresji = poziomAgresji;
+    }
+
+    public void chodzenie() {
+        System.out.println("Ogr chodzi.");
+    }
+
+    @Override
+    public void odpoczywanie() {
+        System.out.println("Ogr odpoczywa.");
+    }
+
+    @Override
+    public void bieganie() {
+        System.out.println("Ogr biegnie.");
+    }
+
+    public void strzelanieZProcy() {
+        System.out.println("Ogr strzela z procy.");
+    }
+
+    public void atakSierpem() {
+        System.out.println("Ogr atakuje sierpem.");
+    }
+}
+
+// Klasa TrollJaskiniowy implementuje interfejs IstotaGrywalna
+class TrollJaskiniowy extends BazowaIstota implements IstotaGrywalna {
+    private final int wytrzymalosc;
+
+    public TrollJaskiniowy(int energia, int wiek, int wytrzymalosc) {
+        super(energia, wiek);
+        this.wytrzymalosc = wytrzymalosc;
+    }
+
+    public void chodzenie() {
+        System.out.println("Troll jaskiniowy chodzi.");
+    }
+
+    @Override
+    public void odpoczywanie() {
+        System.out.println("Troll jaskiniowy odpoczywa.");
+    }
+
+    @Override
+    public void bieganie() {
+        System.out.println("Troll jaskiniowy biegnie.");
+    }
+
+    public void rzucKamien() {
+        System.out.println("Troll jaskiniowy rzuca kamieniem.");
+    }
+
+    public void uderzKolczastaMaczuga() {
+        System.out.println("Troll jaskiniowy uderza kolczastą maczugą.");
+    }
+}
+
+class Rycerz extends BazowaIstota implements IstotaGrywalna {
+    private final int wytrzymalosc;
+
+    public Rycerz(int energia, int wiek, int wytrzymalosc) {
+        super(energia, wiek);
+        this.wytrzymalosc = wytrzymalosc;
+    }
+
+    public void chodzenie() {
+        System.out.println("Rycerz chodzi.");
+    }
+
+    @Override
+    public void odpoczywanie() {
+        System.out.println("Rycerz odpoczywa.");
+    }
+
+    @Override
+    public void bieganie() {
+        System.out.println("Rycerz biegnie.");
+    }
+
+    public void atakMieczem() {
+        System.out.println("Rycerz atakuje mieczem.");
+    }
+
+    public void uderzenieTarcza() {
+        System.out.println("Rycerz uderza tarczą.");
+    }
+
+    public void obronaTarcza() {
+        System.out.println("Rycerz broni się tarczą.");
+    }
+}
+
+class Łucznik extends BazowaIstota implements IstotaGrywalna {
+    private int zasieg;
+
+    public Łucznik(int energia, int wiek, int zasieg) {
+        super(energia, wiek);
+        this.zasieg = zasieg;
+    }
+
+    public void chodzenie() {
+        System.out.println("Łucznik chodzi.");
+    }
+
+    @Override
+    public void odpoczywanie() {
+        System.out.println("Łucznik odpoczywa.");
+    }
+
+    @Override
+    public void bieganie() {
+        System.out.println("Łucznik biegnie.");
+    }
+
+    public void strzalZLuku() {
+        System.out.println("Łucznik strzela z łuku.");
+    }
+
+    public void atakSztyletem() {
+        System.out.println("Łucznik atakuje sztyletem.");
+    }
+
+    public void skradadnieSie() {
+        System.out.println("Łucznik skrada się.");
+    }
+
+    public int getZasieg() {
+        return zasieg;
+    }
+
+    public void setZasieg(int zasieg) {
+        this.zasieg = zasieg;
+    }
+}
+
+class Czarodziej extends BazowaIstota implements IstotaGrywalna {
+    private int moc;
+
+    public Czarodziej(int energia, int wiek, int moc) {
+        super(energia, wiek);
+        this.moc = moc;
+    }
+
+    public void chodzenie() {
+        System.out.println("Czarodziej chodzi.");
+    }
+
+    @Override
+    public void odpoczywanie() {
+        System.out.println("Czarodziej odpoczywa.");
+    }
+
+    @Override
+    public void bieganie() {
+        System.out.println("Czarodziej biegnie.");
+    }
+
+    public void rzucCzar() {
+        System.out.println("Czarodziej rzuca czar.");
+    }
+
+    public void atakujMagicznymKosturem() {
+        System.out.println("Czarodziej atakuje magicznym kosturem.");
+    }
+
+    public int getMoc() {
+        return moc;
+    }
+
+    public void setMoc(int moc) {
+        this.moc = moc;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Ogr ogr = new Ogr(100, 30, 20);
+        ogr.strzelanieZProcy();
+        ogr.chodzenie();
+        ogr.odpoczywanie();
+        ogr.bieganie();
+
+        TrollJaskiniowy troll = new TrollJaskiniowy(80, 40, 30);
+        troll.rzucKamien();
+        troll.chodzenie();
+        troll.odpoczywanie();
+        troll.bieganie();
+
+        Rycerz rycerz = new Rycerz(120, 25, 50);
+        rycerz.atakMieczem();
+        rycerz.chodzenie();
+        rycerz.odpoczywanie();
+        rycerz.bieganie();
+
+        Łucznik łucznik = new Łucznik(90, 28, 70);
+        łucznik.strzalZLuku();
+        łucznik.chodzenie();
+        łucznik.odpoczywanie();
+        łucznik.bieganie();
+
+        Czarodziej czarodziej = new Czarodziej(110, 35, 90);
+        czarodziej.rzucCzar();
+        czarodziej.chodzenie();
+        czarodziej.odpoczywanie();
+        czarodziej.bieganie();
+    }
+}
+

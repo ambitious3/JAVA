@@ -1,0 +1,178 @@
+1.
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+2.
+public class CommentsExample {
+    public static void main(String[] args) {
+        // To jest mój pierwszy komentarz liniowy
+
+        /* To jest komentarz blokowy
+           Można tutaj umieścić więcej linii tekstu */
+
+        int a = 5;
+        int b = 3;
+
+        // Dodawanie
+        int suma = a + b;
+        System.out.println("Suma: " + suma);
+
+        // Odejmowanie
+        int roznica = a - b;
+        System.out.println("Różnica: " + roznica);
+
+        // Mnożenie
+        int iloczyn = a * b;
+        System.out.println("Iloczyn: " + iloczyn);
+
+        // Dzielenie
+        double iloraz = (double) a / b;
+        System.out.println("Iloraz: " + iloraz);
+    }
+}
+3.
+public class NumericVariables {
+    public static void main(String[] args) {
+        int a = 5;
+        short b = 2;
+        double c = 3.14;
+
+        // Dodawanie
+        int suma = a + b;
+        System.out.println("Suma: " + suma);
+
+        // Odejmowanie
+        int roznica = a - b;
+        System.out.println("Różnica: " + roznica);
+
+        // Mnożenie
+        int iloczyn = a * b;
+        System.out.println("Iloczyn: " + iloczyn);
+
+        // Dzielenie
+        double iloraz = (double) a / b;
+        System.out.println("Iloraz: " + iloraz);
+
+        // Dzielenie modulo
+        int modulo = a % b;
+        System.out.println("Modulo: " + modulo);
+    }
+}
+4.
+public class ModuloExample {
+    public static void main(String[] args) {
+        int a = 7;
+        int b = 3;
+        int c = 2;
+
+        int d = a % b % c;
+        System.out.println("Wynik: " + d);
+    }
+}
+5.
+public class IncrementExample {
+    public static void main(String[] args) {
+        int x = 6;
+        x = x - (-4);
+        System.out.println("Wartość x: " + x);
+    }
+}
+6.
+import java.util.Scanner;
+
+public class RectangleArea {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj długość boku a: ");
+        float a = scanner.nextFloat();
+
+        System.out.print("Podaj długość boku b: ");
+        float b = scanner.nextFloat();
+
+        float pole = a * b;
+        System.out.printf("Pole prostokąta: %.2f", pole);
+    }
+}
+7.
+import java.util.Scanner;
+
+public class Sphere {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj promień kuli: ");
+        float r = scanner.nextFloat();
+
+        double objetosc = (4.0 / 3.0) * Math.PI * Math.pow(r, 3);
+        double powierzchnia = 4 * Math.PI * Math.pow(r, 2);
+
+        System.out.printf("Objętość kuli: %.2f%n", objetosc);
+        System.out.printf("Powierzchnia kuli: %.2f%n", powierzchnia);
+    }
+}
+8.
+import java.util.Scanner;
+
+public class TemperatureConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj temperaturę w stopniach Celsjusza: ");
+        float celsius = scanner.nextFloat();
+
+        float fahrenheit = 32 + (9.0f / 5) * celsius;
+        System.out.printf("Temperatura w stopniach Fahrenheita: %.2f%n", fahrenheit);
+    }
+}
+9.
+enum Month {
+    JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+}
+
+public class EnumExample {
+    public static void main(String[] args) {
+        Month month = Month.JANUARY;
+
+        System.out.println("Aktualny miesiąc: " + month);
+
+        if (month == Month.JANUARY) {
+            System.out.println("To jest styczeń");
+        }
+    }
+}
+10.
+import java.util.Scanner;
+
+public class NumberComparison {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Podaj liczbę: ");
+        int liczba = scanner.nextInt();
+
+        if (liczba > 100) {
+            System.out.println("Liczba jest większa od 100");
+        } else if (liczba >= 0 && liczba <= 100) {
+            System.out.println("Liczba jest zawarta w przedziale od 0 do 100");
+        } else {
+            System.out.println("Liczba jest mniejsza od 0");
+        }
+    }
+}
+11.
+import java.util.Scanner;
+
+public class LetterInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        char litera;
+        do {
+            System.out.print("Podaj literę (litera c kończy program): " );
+            litera = scanner.next().charAt(0);
+        } while (litera != 'c');
+    }
+}

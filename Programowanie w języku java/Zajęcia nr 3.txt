@@ -1,0 +1,158 @@
+1a.
+public class petla_for {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Iteracja numer: " + i);
+        }
+    }
+}
+1b.
+public class petla_while {
+    public static void main(String[] args) {
+        int i = 1;
+        while (i <= 5) {
+            System.out.println("Iteracja numer: " + i);
+            i++;
+        }
+    }
+}
+2.
+public class calkowite {
+    public static void main(String[] args) {
+        System.out.println("Petla for:");
+        for (int i = 1; i <= 10; i++) {
+            System.out.print(i + " ");
+        }
+        
+        System.out.println("\nPetla while:");
+        int i = 1;
+        while (i <= 10) {
+            System.out.print(i + " ");
+            i++;
+        }
+        
+        System.out.println("\nPetla do-while:");
+        i = 1;
+        do {
+            System.out.print(i + " ");
+            i++;
+        } while (i <= 10);
+    }
+}
+3.
+public class naturalne {
+    public static void main(String[] args) {
+        int x = 5; // przykladowa liczba
+        int factorial = 1;
+        
+        for (int i = 1; i <= x; i++) {
+            factorial *= i;
+        }
+        
+        System.out.println("Silnia liczby " + x + " wynosi: " + factorial);
+    }
+}
+4.
+public class podzielne {
+    public static void main(String[] args) {
+        System.out.println("Liczby od 1 do 20 podzielne przez 2 to:");
+        for (int i = 1; i <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
+5.
+public class podzielne {
+    public static void main(String[] args) {
+        System.out.println("Liczby od 1 do 30 podzielne przez 3:");
+        int i = 1;
+        while (i <= 30) {
+            if (i % 3 == 0) {
+                System.out.print(i + " ");
+            }
+            i++;
+        }
+    }
+}
+6.
+public class parzyste {
+    public static void main(String[] args) {
+        System.out.println("Liczby parzyste od 1 do 30:");
+        for (int i = 1; i <= 30; i++) {
+            if (i % 2 != 0) {
+                continue;
+            }
+            System.out.print(i + " ");
+        }
+    }
+}
+7.
+public static void alfabet(char x) {
+    char currentChar = 'a';
+    while (currentChar <= x) {
+        System.out.print(currentChar + " ");
+        currentChar++;
+    }
+}
+alfabet('f'); 
+8.
+int x = 5;
+int suma = 0;
+int i = 1;
+
+do {
+    suma += i;
+    i++;
+} while (i <= x);
+
+System.out.println("Suma liczb od 1 do " + x + " wynosi " + suma);
+9.
+int x = 10;
+int suma = 0;
+
+for (int i = 0; i <= x; i += 2) {
+    suma += i;
+}
+
+System.out.println("Suma liczb parzystych od 0 do " + x + " wynosi " + suma);
+
+10.
+for (int i = 100; i >= 1; i--) {
+    if (i % 2 != 0 && i % 3 == 0) {
+        System.out.println(i);
+    }
+}
+
+
+int i = 100;
+while (i >= 1) {
+    if (i % 2 != 0 && i % 3 == 0) {
+        System.out.println(i);
+    }
+    i--;
+}
+
+
+int i = 100;
+do {
+    if (i % 2 != 0 && i % 3 == 0) {
+        System.out.println(i);
+    }
+    i--;
+} while (i >= 1);
+11.
+for (int i = -100; i <= 100; i++) {
+    if (i % 2 == 0 && i % 3 != 0 && i % 8 != 0) {
+        System.out.println(i);
+    }
+}
+12.
+for (int i = 1; i <= 5; i++) {
+    for (int j = 1; j <= 5; j++) {
+        System.out.print(i * j + "\t");
+    }
+    System.out.println();
+}
+

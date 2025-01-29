@@ -1,0 +1,142 @@
+1.
+static int Silnia(int x)
+{
+if (x == 0)
+ return 1;
+return x * Silnia(x - 1);
+}
+2.
+public class SumaNaturalnych {
+    public static int sumaRekurencyjna(int n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n + sumaRekurencyjna(n - 1);
+        }
+    }
+
+    public static int sumaIteracyjna(int n) {
+        int suma = 0;
+        for (int i = 1; i <= n; i++) {
+            suma += i;
+        }
+        return suma;
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        System.out.println("Suma rekurencyjna: " + sumaRekurencyjna(n));
+        System.out.println("Suma iteracyjna: " + sumaIteracyjna(n));
+    }
+}
+3.
+public class Silnia {
+    public static int silniaRekurencyjna(int n) {
+        if (n == 0) {
+            return 1;
+        } else {
+            return n * silniaRekurencyjna(n - 1);
+        }
+    }
+
+    public static int silniaIteracyjna(int n) {
+        int wynik = 1;
+        while (n > 0) {
+            wynik *= n;
+            n--;
+        }
+        return wynik;
+    }
+
+    public static void main(String[] args) {
+        int n = 5;
+        System.out.println("Silnia rekurencyjna: " + silniaRekurencyjna(n));
+        System.out.println("Silnia iteracyjna: " + silniaIteracyjna(n));
+    }
+}
+4.
+public class Fibonacciego {
+    public static int fibonacciRekurencyjny(int n) {
+        if (n <= 1) {
+            return n;
+        } else {
+            return fibonacciRekurencyjny(n - 1) + fibonacciRekurencyjny(n - 2);
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("N-ty wyraz ciągu Fibonacciego: " + fibonacciRekurencyjny(n));
+    }
+}
+5.
+public class NajwiekszyWspolnyDzielnik {
+    public static int najwiekszyWspolnyDzielnik(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return najwiekszyWspolnyDzielnik(b, a % b);
+        }
+    }
+
+    public static void main(String[] args) {
+        int a = 24;
+        int b = 36;
+        System.out.println("Najwiekszy wspolny dzielnik: " + najwiekszyWspolnyDzielnik(a, b));
+    }
+}
+6.
+public class CiagArytmetyczny {
+    public static int ntyWyrazCiagu(int a1, int r, int n) {
+        if (n == 1) {
+            return a1;
+        } else {
+            return ntyWyrazCiagu(a1, r, n - 1) + r;
+        }
+    }
+
+    public static void main(String[] args) {
+        int a1 = 2;
+        int r = 3;
+        int n = 5;
+        System.out.println("N-ty wyraz ciagu arytmetycznego: " + ntyWyrazCiagu(a1, r, n));
+    }
+}
+7.
+public class CiagGeometryczny {
+    public static int ntyWyrazCiagu(int a1, int q, int n) {
+        if (n == 1) {
+            return a1;
+        } else {
+            return ntyWyrazCiagu(a1, q, n - 1) * q;
+        }
+    }
+
+    public static void main(String[] args) {
+        int a1 = 2;
+        int q = 3;
+        int n = 5;
+        System.out.println("N-ty wyraz ciagu geometrycznego: " + ntyWyrazCiagu(a1, q, n));
+    }
+}
+8.
+public class NajmniejszaINajwieksza {
+    public static void main(String[] args) {
+        int[] tablica = {75, 22, 7, 6, 11, 3};
+
+        int najmniejsza = tablica[0];
+        int najwieksza = tablica[0];
+
+        for (int i = 1; i < tablica.length; i++) {
+            if (tablica[i] < najmniejsza) {
+                najmniejsza = tablica[i];
+            }
+            if (tablica[i] > najwieksza) {
+                najwieksza = tablica[i];
+            }
+        }
+
+        System.out.println("Najmniejsza liczba: " + najmniejsza);
+        System.out.println("Najwieksza liczba: " + najwieksza);
+    }
+}

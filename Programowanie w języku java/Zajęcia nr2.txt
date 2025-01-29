@@ -1,0 +1,200 @@
+1.
+Scanner inputScanner = new Scanner(System.in);
+ int liczba = 0;
+ System.out.println("Podaj wartosc liczby [0-2] :");
+ liczba = inputScanner.nextInt();
+ switch (liczba)
+ {
+ case 0:
+ System.out.println("Liczba ma wartosc 0");
+ break;
+ case 1:
+ System.out.println("Liczba ma wartosc 1");
+ break;
+ case 2:
+ System.out.println("Liczba ma wartosc 2");
+ break;
+ default:
+ System.out.println("Nie rozpoznano liczby!");
+ break;
+ }
+2.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Podaj liczbę całkowitą: ");
+        int liczba = scanner.nextInt();
+        
+        int wartoscBezwzgledna;
+        
+        if (liczba < 0) {
+            wartoscBezwzgledna = -liczba;
+        } else {
+            wartoscBezwzgledna = liczba;
+        }
+        
+        System.out.println("Wartość bezwzględna: " + wartoscBezwzgledna);
+    }
+}
+3.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Podaj liczbę: ");
+        int liczba = scanner.nextInt();
+        
+        if (liczba > 100) {
+            System.out.println("Liczba jest większa od 100.");
+        } else if (liczba >= 0 && liczba <= 100) {
+            System.out.println("Liczba jest zawarta w przedziale od 0 do 100.");
+        } else {
+            System.out.println("Liczba jest mniejsza od 0.");
+        }
+    }
+}
+4.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Podaj cyfrę (0-9): ");
+        char cyfra = scanner.next().charAt(0);
+        
+        switch (cyfra) {
+            case '0':
+                System.out.println("Wprowadzono cyfrę 0.");
+                break;
+            case '1':
+                System.out.println("Wprowadzono cyfrę 1.");
+                break;
+            case '2':
+                System.out.println("Wprowadzono cyfrę 2.");
+                break;
+            case '3':
+                System.out.println("Wprowadzono cyfrę 3.");
+                break;
+            case '4':
+                System.out.println("Wprowadzono cyfrę 4.");
+                break;
+            case '5':
+                System.out.println("Wprowadzono cyfrę 5.");
+                break;
+            case '6':
+                System.out.println("Wprowadzono cyfrę 6.");
+                break;
+            case '7':
+                System.out.println("Wprowadzono cyfrę 7.");
+                break;
+            case '8':
+                System.out.println("Wprowadzono cyfrę 8.");
+                break;
+            case '9':
+                System.out.println("Wprowadzono cyfrę 9.");
+                break;
+            default:
+                System.out.println("Wprowadzono nieprawidłową cyfrę.");
+        }
+    }
+}
+5.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Czy jest słoneczny dzień? (t/n): ");
+        char odpowiedz = scanner.next().charAt(0);
+        
+        switch (odpowiedz) {
+            case 't':
+            case 'T':
+                System.out.println("Piękny dzień!");
+                break;
+            case 'n':
+            case 'N':
+                System.out.println("Brak słońca.");
+                break;
+            default:
+                System.out.println("Wprowadzono nieprawidłową wartość.");
+        }
+    }
+}
+6.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Podaj literę: ");
+        char litera = scanner.next().charAt(0);
+        
+        switch (Character.toLowerCase(litera)) {
+            case 'a':
+                System.out.println("Wprowadzono literę 'a'.");
+                break;
+            case 'b':
+                System.out.println("Wprowadzono literę 'b'.");
+                break;
+            // Kontynuuj dla innych liter
+            default:
+                System.out.println("Wprowadzono nierozpoznaną literę.");
+        }
+    }
+}
+7.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Podaj numer indeksu: ");
+        int numerIndeksu = scanner.nextInt();
+        
+        String plec = (numerIndeksu % 2 == 0) ? "mężczyzna" : "kobieta";
+        int rokRozpoczecia = 2019 - (numerIndeksu / 1000);
+        
+        System.out.println("Płeć studenta: " + plec);
+        System.out.println("Rok rozpoczęcia studiów: " + rokRozpoczecia);
+    }
+}
+8.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Podaj a: ");
+        double a = scanner.nextDouble();
+        
+        System.out.print("Podaj b: ");
+        double b = scanner.nextDouble();
+        
+        System.out.print("Podaj c: ");
+        double c = scanner.nextDouble();
+        
+        double delta = b * b - 4 * a * c;
+        
+        if (delta < 0) {
+            System.out.println("Brak pierwiastków rzeczywistych.");
+        } else if (delta == 0) {
+            double x1 = -b / (2 * a);
+            System.out.println("Jeden pierwiastek podwójny: x = " + x1);
+        } else {
+            double x1 = (-b - Math.sqrt(delta)) / (2 * a);
+            double x2 = (-b + Math.sqrt(delta)) / (2 * a);
+            System.out.println("Pierwiastki x1 = " + x1 + ", x2 = " + x2);
+        }
+    }
+}

@@ -1,0 +1,312 @@
+1.public class EnumExample {
+    enum Days {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
+ 
+    public static void main(String[] args) {
+        Days today = Days.WEDNESDAY;
+ 
+        switch (today) {
+            case MONDAY:
+                System.out.println("It's Monday!");
+                break;
+            case WEDNESDAY:
+                System.out.println("It's Wednesday!");
+                break;
+            // Dodaj pozostałe dni tygodnia według potrzeb
+            default:
+                System.out.println("It's some other day.");
+        }
+    }
+}
+—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-
+2.class Animal {
+    void makeSound() {
+        System.out.println("dzwiek");
+    }
+}
+ 
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("hau! hau!");
+    }
+}
+ 
+class Cat extends Animal {
+    void makeSound() {
+        System.out.println("Meow!");
+    }
+}
+ 
+public class Main {
+    public static void main(String[] args) {
+        Animal animal1 = new Dog();
+        Animal animal2 = new Cat();
+ 
+        animal1.makeSound();
+        animal2.makeSound();
+    }
+}
+—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-
+3.
+class Animal {
+    protected String name;
+    protected int age;
+ 
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+ 
+    public void eat() {
+        System.out.println(name + " zwierze je.");
+    }
+}
+ 
+class Fish extends Animal {
+    public Fish(String name, int age) {
+        super(name, age);
+    }
+ 
+    public void swim() {
+        System.out.println(name + " ryba plynie.");
+    }
+ 
+    @Override
+    public void eat() {
+        System.out.println(name + " ryba je.");
+    }
+}
+ 
+class Mammal extends Animal {
+    protected String color;
+    protected double weight;
+ 
+    public Mammal(String name, int age, String color, double weight) {
+        super(name, age);
+        this.color = color;
+        this.weight = weight;
+    }
+ 
+    public void run() {
+        System.out.println(name + " ssak biegnie.");
+    }
+ 
+    @Override
+    public void eat() {
+        System.out.println(name + " ssak je.");
+    }
+}
+ 
+class Bird extends Animal {
+    protected String breed;
+ 
+    public Bird(String name, int age, String breed) {
+        super(name, age);
+        this.breed = breed;
+    }
+ 
+    public void fly() {
+        System.out.println(name + " ptak lata.");
+    }
+ 
+    public void sing() {
+        System.out.println(name + " ptak spiewa.");
+    }
+ 
+    @Override
+    public void eat() {
+        System.out.println(name + " ptak je.");
+    }
+}
+ 
+class Cat extends Mammal {
+    public Cat(String name, int age, String color, double weight) {
+        super(name, age, color, weight);
+    }
+ 
+    private void cleaning() {
+        System.out.println(name + " kot myje sie.");
+    }
+ 
+    public void meow() {
+        System.out.println(name + " kot mowi meow.");
+    }
+ 
+    @Override
+    public void eat() {
+        System.out.println(name + " kot je.");
+    }
+}
+ 
+class Dog extends Mammal {
+    public Dog(String name, int age, String color, double weight) {
+        super(name, age, color, weight);
+    }
+ 
+    public void bark() {
+        System.out.println(name + " pies szczeka.");
+    }
+ 
+    public void retrieve() {
+        System.out.println(name + " pies aportuje.");
+    }
+ 
+    @Override
+    public void eat() {
+        System.out.println(name + " pies je.");
+    }
+}
+ 
+public class Main {
+    public static void main(String[] args) {
+        Fish fish = new Fish("Nemo", 2);
+        fish.swim();
+        fish.eat();
+ 
+        Cat cat = new Cat("Kotek", 3, "Szary", 5.5);
+        cat.meow();
+        cat.run();
+        cat.eat();
+ 
+        Dog dog = new Dog("Piesek", 4, "Brazowy", 10.2);
+        dog.bark();
+        dog.retrieve();
+        dog.eat();
+    }
+}
+—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-—————-
+4.
+class Person {
+    private String name;
+    private int age;
+ 
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+ 
+    public void display() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+ 
+class Student extends Person {
+    private String fieldOfStudy;
+ 
+    public Student(String name, int age, String fieldOfStudy) {
+        super(name, age);
+        this.fieldOfStudy = fieldOfStudy;
+    }
+ 
+    public void learn() {
+        System.out.println("Studying...");
+    }
+ 
+    public void party() {
+        System.out.println("Partying!");
+    }
+ 
+    public void display() {
+        super.display();
+        System.out.println("Field of Study: " + fieldOfStudy);
+    }
+}
+ 
+class Employee extends Person {
+    private double salary;
+ 
+    public Employee(String name, int age, double salary) {
+        super(name, age);
+        this.salary = salary;
+    }
+ 
+    public double getSalary() {
+        return salary;
+    }
+ 
+    public void display() {
+        super.display();
+        System.out.println("Salary: " + salary);
+    }
+}
+ 
+class Pensioner extends Person {
+    private double income;
+ 
+    public Pensioner(String name, int age, double income) {
+        super(name, age);
+        this.income = income;
+    }
+ 
+    public void travel() {
+        System.out.println("Traveling...");
+    }
+ 
+    public void visiting() {
+        System.out.println("Visiting...");
+    }
+ 
+    public void display() {
+        super.display();
+        System.out.println("Income: " + income);
+    }
+}
+ 
+class Manager extends Employee {
+    private String department;
+ 
+    public Manager(String name, int age, double salary, String department) {
+        super(name, age, salary);
+        this.department = department;
+    }
+ 
+    private void monitoring() {
+        System.out.println("Monitoring...");
+    }
+ 
+    public void display() {
+        super.display();
+        System.out.println("Department: " + department);
+    }
+}
+ 
+class Accountant extends Employee {
+    public Accountant(String name, int age, double salary) {
+        super(name, age, salary);
+    }
+ 
+    public void calculating() {
+        System.out.println("Calculating...");
+    }
+ 
+    public void reporting() {
+        System.out.println("Reporting...");
+    }
+}
+ 
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person("John", 25);
+        person.display();
+ 
+        Student student = new Student("Alicja", 20, "Computer Science");
+        student.display();
+        student.learn();
+        student.party();
+ 
+        Employee employee = new Employee("Bob", 30, 50000);
+        employee.display();
+ 
+        Pensioner pensioner = new Pensioner("Eva", 65, 2000);
+        pensioner.display();
+        pensioner.travel();
+        pensioner.visiting();
+ 
+        Manager manager = new Manager("Mike", 40, 80000, "IT");
+        manager.display();
+ 
+        Accountant accountant = new Accountant("Emma", 35, 60000);
+        accountant.display();
+        accountant.calculating();
+        accountant.reporting();
+    }
+}

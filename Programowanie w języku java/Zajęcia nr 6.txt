@@ -1,0 +1,218 @@
+1.
+ 
+import java.util.Scanner;
+ 
+public class Stozek {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+ 
+        System.out.print("Podaj promien podstawy stozka: ");
+        double r = scanner.nextDouble();
+ 
+        System.out.print("Podaj wysokosc stozka: ");
+        double h = scanner.nextDouble();
+ 
+        double polePodstawy = Math.PI * Math.pow(r, 2);
+        double objetosc = (1.0 / 3.0) * polePodstawy * h;
+ 
+        System.out.println("Pole podstawy stozka: " + polePodstawy);
+        System.out.println("Objetosc stozka: " + objetosc);
+    }
+}
+ 
+2.
+ 
+import java.util.Scanner;
+ 
+public class Ocena {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+ 
+        System.out.print("Wprowadz liczbe calkowita: ");
+        int liczba = scanner.nextInt();
+ 
+        if (liczba < 0 || liczba > 100) {
+            System.out.println("Liczba powinna zawierac sie w przedziale od 0 do 100.");
+        } else if (liczba >= 0 && liczba <= 50) {
+            System.out.println("Ocena: 2,0");
+        } else if (liczba >= 51 && liczba <= 60) {
+            System.out.println("Ocena: 3,0");
+        } else if (liczba >= 61 && liczba <= 70) {
+            System.out.println("Ocena: 3,5");
+        } else if (liczba >= 71 && liczba <= 80) {
+            System.out.println("Ocena: 4,0");
+        } else if (liczba >= 81 && liczba <= 90) {
+            System.out.println("Ocena: 4,5");
+        } else if (liczba >= 91 && liczba <= 100) {
+            System.out.println("Ocena: 5,0");
+        }
+    }
+}
+ 
+3.
+ 
+import java.util.Scanner;
+ 
+public class RownaniePitagorasa {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+ 
+        System.out.print("Wprowadz wartosc a: ");
+        int a = scanner.nextInt();
+ 
+        System.out.print("Wprowadz wartosc b: ");
+        int b = scanner.nextInt();
+ 
+        System.out.print("Wprowadz wartosc c: ");
+        int c = scanner.nextInt();
+ 
+        boolean spelniaRownaniePitagorasa = a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a;
+ 
+        if (spelniaRownaniePitagorasa) {
+            System.out.println("Podane liczby spelniaja rownanie Pitagorasa.");
+        } else {
+            System.out.println("Podane liczby nie spelniaja rownania Pitagorasa.");
+        }
+    }
+}
+ 
+4.
+ 
+import java.util.Scanner;
+ 
+public class DeMorgan {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+ 
+        System.out.print("Wprowadz wartosc logiczna p (true/false): ");
+        boolean p = scanner.nextBoolean();
+ 
+        System.out.print("Wprowadz wartosc logiczna q (true/false): ");
+        boolean q = scanner.nextBoolean();
+ 
+        boolean lewaStrona = !(p && q);
+        boolean prawaStrona = !p || !q;
+ 
+        System.out.println("Wynik lewej strony: " + lewaStrona);
+        System.out.println("Wynik prawej strony: " + prawaStrona);
+ 
+        if (lewaStrona == prawaStrona) {
+            System.out.println("Wyniki sa takie same.");
+        } else {
+            System.out.println("Wyniki sa rozne.");
+        }
+    }
+}
+5.
+import java.util.Scanner;
+ 
+public class Program {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj na ile dni liczyc pobyt: ");
+        int dni = scanner.nextInt();
+        int cena;
+ 
+        if (dni > 10) {
+            cena = 150;
+        } else if (dni >= 5 && dni <= 10) {
+            cena = 200;
+        } else {
+            cena = 250;
+        }
+ 
+        int koszt = dni * cena;
+        System.out.println("Cena za pobyt: " + koszt + " zl");
+    }
+}
+ 
+6.
+ 
+import java.util.Scanner;
+ 
+public class Program {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj liczbe n: ");
+        int n = scanner.nextInt();
+ 
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+ 
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+ 
+7.
+ 
+import java.util.Scanner;
+ 
+public class Program {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj wiek psa w ludzkich latach: ");
+        int wiekLudzki = scanner.nextInt();
+        int wiekPsa;
+ 
+        if (wiekLudzki <= 2) {
+            wiekPsa = wiekLudzki * 10;
+        } else {
+            wiekPsa = 20 + (wiekLudzki - 2) * 4;
+        }
+ 
+        System.out.println("Wiek psa w psich latach to: " + wiekPsa);
+    }
+}
+ 
+8.
+ 
+import java.util.Scanner;
+ 
+public class Program {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj haslo: ");
+        String haslo = scanner.nextLine();
+ 
+        if (poprawneHaslo(haslo)) {
+            System.out.println("Haslo jest poprawne");
+        } else {
+            System.out.println("Haslo jest niepoprawne");
+        }
+    }
+ 
+    public static boolean poprawneHaslo(String haslo) {
+        if (haslo.length() < 6 || haslo.length() > 16) {
+            return false;
+        }
+ 
+        boolean zawieraMalaLitere = false;
+        boolean zawieraDuzaLitere = false;
+        boolean zawieraCyfre = false;
+        boolean zawieraZnakSpecjalny = false;
+ 
+        for (int i = 0; i < haslo.length(); i++) {
+            char znak = haslo.charAt(i);
+            if (Character.isLowerCase(znak)) {
+                zawieraMalaLitere = true;
+            } else if (Character.isUpperCase(znak)) {
+                zawieraDuzaLitere = true;
+            } else if (Character.isDigit(znak)) {
+                zawieraCyfre = true;
+            } else if (znak == '$' || znak == '#' || znak == '@') {
+                zawieraZnakSpecjalny = true;
+            }
+        }
+ 
+        return zawieraMalaLitere && zawieraDuzaLitere && zawieraCyfre && zawieraZnakSpecjalny;
+    }
+}
